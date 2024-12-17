@@ -23,6 +23,7 @@ class Customer
 	public Customer(int customerId) 
 	{
 		super();
+		this.customerId = customerId;
 	}
 
 	@Override
