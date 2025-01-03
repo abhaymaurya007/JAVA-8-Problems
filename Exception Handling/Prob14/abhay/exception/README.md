@@ -1,33 +1,33 @@
-QUESTION -15 :-
-=====================
 Bank Application
-================
+=================
 Objective:
-=============
+----------
 Develop a Java program for a bank application that performs deposit, withdrawal, transfer, loan application, and balance check operations with proper input validation and error handling. The program should utilize a Bank interface, BankAccount and Customer classes, and an ATM class to demonstrate the application's functionality. Use custom exceptions, switch-case statements, try-with-resources, and multi-catch blocks for error handling.
 
 Requirements:
 Custom Exceptions:
-======================
+-----------------------
+
 class InsufficientFundsException(Checked):
+=============================================
 Methods:
 Parameterized Constructor with String as parameter
 Purpose: Thrown when there are not enough funds for a withdrawal or transfer.
 
 class InvalidAmountException(Unchecked):
-=======================================
+=============================================
 Methods:
 Parameterized Constructor with String as parameter
 Purpose: Thrown when an invalid amount is entered for any transaction.
 
 class AccountNotFoundException(Checked):
-==========================================
+=================================================
 Methods:
 Parameterized Constructor with String as parameter
 Purpose: Thrown when an account is not found during a transfer.
 
 class LoanNotAllowedException(Unchecked):
-==============================================
+=============================================
 Methods:
 Parameterized Constructor with String as parameter
 Purpose:
@@ -38,6 +38,7 @@ Bank Interface:
 Methods:
 
 Method name: deposit 
+--------------------------
 return type : void
 parameters : double amount
 throws InvalidAmountException
@@ -45,7 +46,7 @@ Deposits the specified amount into the account. Throws InvalidAmountException if
 
 
 Method name: withdraw 
---------------------------
+-------------------------
 return type : void
 parameters : double amount
 throws InsufficientFundsException, InvalidAmountException:
@@ -53,7 +54,7 @@ Withdraws the specified amount from the account. Throws InsufficientFundsExcepti
 
 
 Method name: transfer 
------------------------
+------------------------
 return type : void
 parameters : (BankAccount toAccount, double amount) 
 throws InsufficientFundsException, AccountNotFoundException, InvalidAmountException: 
@@ -61,18 +62,19 @@ Transfers the specified amount to another account. Throws InsufficientFundsExcep
 
 
 Method name: applyForLoan 
-===========================
+-----------------------------
 return type : void
 parameters : (double amount) 
 throws LoanNotAllowedException, InvalidAmountException:
 Applies for a loan of the specified amount(50000). Throws LoanNotAllowedException if the loan amount exceeds the allowed limit(50000) or if the balance is less than specified amount(50000). Throws InvalidAmountException if the amount is less than or equal to zero.
 
 Method name: getBalance 
+----------------------------
 return type : double
 Returns the current balance of the account.
 
 BankAccount Class(BLC):
---------------------------
+-----------------------------
 Attributes:
 accountNumber: long: private
 balance:double: private
@@ -86,17 +88,14 @@ withdraw(double amount): Decreases the account balance by the specified amount. 
 
 transfer(BankAccount toAccount, double amount): Transfers the specified amount to another account. Throws InsufficientFundsException if the amount is greater than the account balance. Throws AccountNotFoundException if the target account is not found(i,e if toAccount is null). Throws InvalidAmountException if the amount is less than or equal to zero.
 
-applyForLoan(double amount):
-===============================
- Allows the user to apply for a loan. Throws LoanNotAllowedException if the loan amount exceeds the allowed limit. Throws InvalidAmountException if the amount is less than or equal to zero.
+applyForLoan(double amount): Allows the user to apply for a loan. Throws LoanNotAllowedException if the loan amount exceeds the allowed limit. Throws InvalidAmountException if the amount is less than or equal to zero.
 
-getBalance():
-=============
- Returns the current balance of the account.
+getBalance(): Returns the current balance of the account.
 Constructor to initialize account number and initial balance.
 
 
 Customer Class(BLC):
+===================
 Attributes:
 name: String: private
 account: BankAccount: private //HAS-A
@@ -134,7 +133,7 @@ Action: Attempt to deposit -500.
 Expected Output: Should throw InvalidAmountException with appropriate message.
 
 Withdrawal Test Cases - 2:
--------------------------------
+------------------------------------
 Valid Withdrawal:
 Action: Withdraw 500 from account balance of 1000.
 Expected Output: Balance should decrease by 500.
@@ -146,7 +145,7 @@ Action: Attempt to withdraw -200.
 Expected Output: Should throw InvalidAmountException with appropriate message.
 
 Transfer Test Cases - 3:
-------------------------------
+----------------------------
 Valid Transfer:
 Action: Transfer 300 from one account to another with sufficient balance.
 Expected Output: Sender's balance should decrease by 300, receiver's balance should increase by 300.
@@ -162,7 +161,7 @@ Expected Output: Should throw InvalidAmountException with appropriate message.
 
 
 Loan Application Test Cases - 4:
--------------------------
+---------------------------------------
 Valid Loan Application:
 Action: Apply for a loan of 30000 with account balance greater than 50000.
 Expected Output: Loan should be approved, balance should increase by 30000.

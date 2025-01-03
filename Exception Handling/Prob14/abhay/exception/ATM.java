@@ -3,7 +3,6 @@ package Prob14.abhay.exception;
 import java.util.Scanner;
 
 public class ATM {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
          System.out.println("Select an option :");
@@ -13,14 +12,14 @@ public class ATM {
          System.out.println("4. Loan Application");
          System.out.println("5. Check Balance");
          System.out.println("6. Exit");
-         
         BankAccount ba1=new BankAccount(544646576,20000);
         BankAccount ba2=new BankAccount(12345678,10000);
        // Customer c1=new Customer("Abhay", ba1);
-        
         Scanner sc=new Scanner(System.in); 
+        while(true) {
+        	System.out.println("Enter your choice :");
         int ch=sc.nextInt();
-        try (sc){
+        try {
         switch(ch){
         	case 1:System.out.println("Enter amount :");
         	      double d=sc.nextDouble();
@@ -41,10 +40,11 @@ public class ATM {
         		break;
         	case 5:
         		System.out.println(ba1.getBalance());
+        		break;
         	case 6:
         		System.out.println("thank you for ur services");
+        		sc.close();
         		return ;
-  	       
         }
         }
         catch(InsufficientFundsException a) {
@@ -60,9 +60,10 @@ public class ATM {
 	    	  d.printStackTrace();
 	      }
 
-
-
-
-	}
+        }
+        
+        
+        
+        }
 
 }
