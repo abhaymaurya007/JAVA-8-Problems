@@ -17,24 +17,24 @@ public class ATM {
        // Customer c1=new Customer("Abhay", ba1);
         Scanner sc=new Scanner(System.in); 
         while(true) {
-        	System.out.println("Enter your choice :");
+        	System.out.print("Enter your choice :");
         int ch=sc.nextInt();
         try {
         switch(ch){
-        	case 1:System.out.println("Enter amount :");
+        	case 1:System.out.print("Enter amount :");
         	      double d=sc.nextDouble();
         		ba1.deposit(d);
         		break;
-        	case 2:System.out.println("Enter amount :");
+        	case 2:System.out.print("Enter amount :");
   	      double e=sc.nextDouble();
   	      ba1.withdraw(e);
   	      break;
         	case 3:
-        	  System.out.println("Enter amount :");	
+        	  System.out.print("Enter amount :");	
         	  double f=sc.nextDouble();
         ba1.transfer(ba2,f);
         break;
-        	case 4: System.out.println("enter amount for loan :");
+        	case 4: System.out.print("enter amount for loan :");
         	double g=sc.nextDouble();
         		ba1.applyForLoan(g);
         		break;
@@ -42,7 +42,7 @@ public class ATM {
         		System.out.println(ba1.getBalance());
         		break;
         	case 6:
-        		System.out.println("thank you for ur services");
+        		System.out.print("thank you for ur services");
         		sc.close();
         		return ;
         }
