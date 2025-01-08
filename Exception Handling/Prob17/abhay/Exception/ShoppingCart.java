@@ -54,19 +54,7 @@ class ShoppingCart {
         return total;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("ShoppingCart{items=[");
-        for (int i = 0; i < itemCount; i++) {
-            sb.append(cartItems[i].toString());
-            if (i < itemCount - 1) {
-                sb.append(", ");
-            }
-        }
-        sb.append("]}");
-        return sb.toString();
-    }
+  
 }
 
  
